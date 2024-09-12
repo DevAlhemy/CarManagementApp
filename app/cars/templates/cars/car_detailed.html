@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>{{ car.make }} {{ car.model }} ({{ car.year }})</h1>
+<p>{{ car.description }}</p>
+
+<h2>Comments</h2>
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment.author }}: {{ comment.content }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Add a Comment</h3>
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="content"></textarea>
+    <button type="submit">Add Comment</button>
+</form>
+</body>
+</html>
